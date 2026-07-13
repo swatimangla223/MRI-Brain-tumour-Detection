@@ -1,7 +1,10 @@
 import streamlit as st
-from train_model import HOG_ORIENTATIONS
 
-
+# CONFIGURATIONS - Define here instead of importing from train_model
+IMG_SIZE = (128, 128)  # Resize images to this size
+HOG_ORIENTATIONS = 9
+HOG_PIXELS_PER_CELL = (8, 8)
+HOG_CELLS_PER_BLOCK = (2, 2)
 
 #page config- Must be first
 st.set_page_config(page_title="Brain Tumor Classification", layout="centered")
@@ -31,13 +34,6 @@ try:
 except FileNotFoundError:
     model_loaded = False
     st.error("Model files not found. Please run 'train_model.py' first to generate the required'pkl' files")
-
-# CONFIGURATIONS
-
-IMG_SIZE = (128, 128)  # Resize images to this size
-HOG_ORIENTATIONS = 9
-HOG_PIXELS_PER_CELL = (8, 8)
-HOG_CELLS_PER_BLOCK = (2, 2)
 
 def preprocess_image(image):
     # Convert to grayscale
