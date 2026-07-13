@@ -1,0 +1,11 @@
+[client]
+showErrorDetails = false
+showWarningOnDirectoryDelete = false
+
+[server]
+enableCORS = false
+enableXsrfProtection = false
+maxUploadSize = 200
+
+[logger]
+level = "info"
